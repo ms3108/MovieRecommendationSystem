@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='images/background.jpg') }}'); background-size: cover; background-position: center;">
+    <div class="container mt-5">
+        <div class="text-center text-white">
+            <h1>Movie Recommendation System</h1>
+            <p>Enter a movie name to get recommendations</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/recommend" method="POST" class="bg-light p-4 rounded shadow">
+                    <div class="form-group">
+                        <label for="movie_name">Enter a Movie Name</label>
+                        <input type="text" class="form-control" id="movie_name" name="movie_name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
+                </form>
+            </div>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-danger mt-4 text-center" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if recommendations %}
+        <div class="mt-4">
+            <h2 class="text-center text-white">Recommended Movies:</h2>
+            <ul class="list-group list-group-flush">
+                {% for movie in recommendations %}
+                    <li class="list-group-item">{{ movie }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if movie_name %}
+        <div class="mt-4">
+            <p class="text-center text-white">You searched for: <strong>{{ movie_name }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

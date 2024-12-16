@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body style="background-image: url('/static/images/images.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+
+    <h1>Movie Recommendation System</h1>
+
+    <form action="/recommend" method="POST">
+        <label for="movie_name">Enter a movie name:</label>
+        <input type="text" id="movie_name" name="movie_name" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red; text-align: center;">{{ error }}</p>
+    {% endif %}
+
+    {% if recommendations %}
+        <h2>Recommended Movies:</h2>
+        <ul>
+            {% for movie in recommendations %}
+                <li>{{ movie }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if movie_name %}
+        <h3>You searched for: {{ movie_name }}</h3>
+    {% endif %}
+
+</body>
+</html>
