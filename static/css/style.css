@@ -1,5 +1,7 @@
 /* General Body Styles */
 body {
+        text-align: center;
+
     background-image: url('/static/images/images.jpg');
     background-size: cover;
     background-position: center;
@@ -9,6 +11,8 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
+        font-size: 1.8rem;
+
 }
 
 /* Heading Styles */
@@ -18,14 +22,14 @@ h1 {
     font-size: 4rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #f8f9fa;
+    color: #7e7472;
     letter-spacing: 3px;
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-top: 40px;
     font-weight: 600;
     color: #f8f9fa;
@@ -57,7 +61,8 @@ h2 {
 
 /* Form Label */
 label {
-    font-size: 1.2rem;
+
+    font-size: 2rem;
     margin-bottom: 10px;
     display: block;
     font-weight: bold;
@@ -109,47 +114,10 @@ button:active {
     transform: scale(1.02);
 }
 
-/* Recommended Movies List */
-.recommendations-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 40px;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
 
-/* Individual Movie Card Styles */
-.recommendations-list li {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    width: 280px;
-    border-radius: 15px;
-    font-size: 1.2rem;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-/* Movie Card Hover Effect */
-.recommendations-list li:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-}
 
-/* Movie Poster Image Styling */
-.recommendations-list img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+
 
 /* Mobile-Friendly Adjustments */
 @media (max-width: 768px) {
